@@ -21,6 +21,17 @@ class DeselectedColor(DefaultColor):
         return '#7a7a7a'
 
 
+# - - - - - - - #
+# W I N D O W S #
+# - - - - - - - #
+
+class Tk(tk.Tk):
+    pass
+
+
+class TopLevel(tk.Toplevel):
+    pass
+
 
 # - - - - - #
 # F O N T S #
@@ -38,10 +49,6 @@ class RegularFont(DefaultFont):
 class BigFont(DefaultFont):
     def __init__(self):
         DefaultFont.__init__(self, size=16)
-
-
-class Tk(tkinter.Tk):
-    pass
 
 
 # - - - - - - - #
