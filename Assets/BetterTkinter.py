@@ -25,6 +25,11 @@ class DeselectedColor(DefaultColor):
         return '#7a7a7a'
 
 
+class BackgroundColor(DefaultColor):
+    def Get(self):
+        return '#FFFFFF'
+
+
 # - - - - #
 # P A D S #
 # - - - - #
