@@ -1,4 +1,4 @@
-import tkinter
+import tkinter as tk
 from tkinter import ttk, font
 
 # - - - - - - #
@@ -65,6 +65,7 @@ class RegularButton(DefaultButton):
 # - - - - - - #
 # E N T R Y S #
 # - - - - - - #
+
 
 class DefaultEntry(ttk.Entry):
     pass
