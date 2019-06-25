@@ -79,3 +79,25 @@ class RegularEntry(DefaultEntry):
 class BigEntry(DefaultEntry):
     def __init__(self, *args, **kwargs):
         DefaultEntry.__init__(self, font=BigFont(), *args, **kwargs)
+
+
+# - - - - - #
+# T E X T S #
+# - - - - - #
+
+class DefaultText(tk.Text):
+
+    def __init__(self, *args, **kwargs):
+        tk.Text.__init__(self,
+                         relief='flat',
+                         highlightthickness=1,
+                         highlightcolor=SelectedColor().Get(),
+                         highlightbackground=DeselectedColor().Get(),
+                         *args, **kwargs)
+
+
+class RegularText(DefaultText):
+    def __init__(self, *args, **kwargs):
+        DefaultText.__init__(self,
+                             font=RegularFont(),
+                             *args, **kwargs)
