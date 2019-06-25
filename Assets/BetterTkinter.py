@@ -24,6 +24,15 @@ class Button(ttk.Button):
     pass
 
 
-class Entry(ttk.Entry):
+class DefaultEntry(ttk.Entry):
+    pass
+
+
+class RegularEntry(DefaultEntry):
     def __init__(self, *args, **kwargs):
-        ttk.Entry.__init__(self, font=BigFont(), *args, **kwargs)
+        DefaultEntry.__init__(self, font=RegularFont(), *args, **kwargs)
+
+
+class BigEntry(DefaultEntry):
+    def __init__(self, *args, **kwargs):
+        DefaultEntry.__init__(self, font=BigFont(), *args, **kwargs)
