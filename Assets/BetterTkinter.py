@@ -2,6 +2,10 @@ import tkinter
 from tkinter import ttk, font
 
 
+# - - - - - #
+# F O N T S #
+# - - - - - #
+
 class DefaultFont(font.Font):
     pass
 
@@ -20,9 +24,17 @@ class Tk(tkinter.Tk):
     pass
 
 
+# - - - - - - - #
+# B U T T O N S #
+# - - - - - - - #
+
 class Button(ttk.Button):
     pass
 
+
+# - - - - - - #
+# E N T R Y S #
+# - - - - - - #
 
 class DefaultEntry(ttk.Entry):
     pass
