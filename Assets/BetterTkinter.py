@@ -1,6 +1,12 @@
 import tkinter as tk
 from tkinter import ttk, font
 
+
+class DefaultValue():
+    def Get(self):
+        pass
+
+
 # - - - - - - #
 # C O L O R S #
 # - - - - - - #
