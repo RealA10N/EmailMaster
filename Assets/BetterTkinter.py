@@ -1,6 +1,26 @@
 import tkinter
 from tkinter import ttk, font
 
+# - - - - - - #
+# C O L O R S #
+# - - - - - - #
+
+
+class DefaultColor():
+    def Get(self):
+        pass
+
+
+class SelectedColor():
+    def Get(self):
+        return '#0078d7'
+
+
+class DeselectedColor(DefaultColor):
+    def Get(self):
+        return '#7a7a7a'
+
+
 
 # - - - - - #
 # F O N T S #
