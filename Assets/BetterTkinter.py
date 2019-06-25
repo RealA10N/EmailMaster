@@ -11,13 +11,11 @@ class DefaultValue():
 # C O L O R S #
 # - - - - - - #
 
-
-class DefaultColor():
-    def Get(self):
-        pass
+class DefaultColor(DefaultValue):
+    pass
 
 
-class SelectedColor():
+class SelectedColor(DefaultColor):
     def Get(self):
         return '#0078d7'
 
