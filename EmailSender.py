@@ -12,7 +12,7 @@ class Window(tk.Tk):
 
     def LoadWidgets(self):
 
-        SenderEmail = tk.Entry(self)
+        SenderEmail = tk.RegularEntry(self)
         SenderEmail.grid()
 
 
