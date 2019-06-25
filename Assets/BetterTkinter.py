@@ -27,6 +27,24 @@ class DeselectedColor(DefaultColor):
         return '#7a7a7a'
 
 
+# - - - - #
+# P A D S #
+# - - - - #
+
+class DefaultPad(DefaultValue):
+    pass
+
+
+class RegularPad(DefaultPad):
+    def Get(self):
+        return 6
+
+
+class BigPad(DefaultPad):
+    def Get(self):
+        return 10
+
+
 # - - - - - - - #
 # W I N D O W S #
 # - - - - - - - #
