@@ -123,3 +123,37 @@ class RegularText(DefaultText):
         DefaultText.__init__(self,
                              font=RegularFont(),
                              *args, **kwargs)
+
+
+# - - - - - - #
+# L A B E L S #
+# - - - - - - #
+
+class DefaultLabel(tk.Label):
+    pass
+
+
+class RegularLabel(DefaultLabel):
+    def __init__(self, *args, **kwargs):
+        DefaultLabel.__init__(self,
+                              font=RegularFont(),
+                              *args, **kwargs)
+
+    def grid(self, *args, **kwargs):
+        DefaultLabel.grid(self,
+                          padx=RegularPad().Get(),
+                          pady=RegularPad().Get(),
+                          *args, **kwargs)
+
+
+class BigLabel(DefaultLabel):
+    def __init__(self, *args, **kwargs):
+        DefaultLabel.__init__(self,
+                              font=BigFont(),
+                              *args, **kwargs)
+
+    def grid(self, *args, **kwargs):
+        DefaultLabel.grid(self,
+                          padx=BigPad().Get(),
+                          pady=BigPad().Get(),
+                          *args, **kwargs)
