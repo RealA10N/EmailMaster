@@ -48,9 +48,12 @@ class Tk(tkinter.Tk):
 # B U T T O N S #
 # - - - - - - - #
 
-class Button(ttk.Button):
+class DefaultButton(ttk.Button):
     pass
 
+
+class RegularButton(DefaultButton):
+    pass
 
 # - - - - - - #
 # E N T R Y S #
