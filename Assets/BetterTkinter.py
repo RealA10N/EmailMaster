@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk, font
 
 
-class DefaultValue():
+class __DefaultValue():
     def Get(self):
         pass
 
@@ -11,21 +11,21 @@ class DefaultValue():
 # C O L O R S #
 # - - - - - - #
 
-class DefaultColor(DefaultValue):
+class __DefaultColor(__DefaultValue):
     pass
 
 
-class SelectedColor(DefaultColor):
+class SelectedColor(__DefaultColor):
     def Get(self):
         return '#0078d7'
 
 
-class DeselectedColor(DefaultColor):
+class DeselectedColor(__DefaultColor):
     def Get(self):
         return '#7a7a7a'
 
 
-class BackgroundColor(DefaultColor):
+class BackgroundColor(__DefaultColor):
     def Get(self):
         return '#f3f3f3'
 
@@ -34,16 +34,16 @@ class BackgroundColor(DefaultColor):
 # P A D S #
 # - - - - #
 
-class DefaultPad(DefaultValue):
+class __DefaultPad(__DefaultValue):
     pass
 
 
-class RegularPad(DefaultPad):
+class RegularPad(__DefaultPad):
     def Get(self):
         return 6
 
 
-class BigPad(DefaultPad):
+class BigPad(__DefaultPad):
     def Get(self):
         return 10
 
@@ -73,29 +73,29 @@ class Frame(tk.Frame):
 # F O N T S #
 # - - - - - #
 
-class DefaultFont(font.Font):
+class _DefaultFont(font.Font):
     pass
 
 
-class RegularFont(DefaultFont):
+class RegularFont(_DefaultFont):
     def __init__(self):
-        DefaultFont.__init__(self, size=12)
+        _DefaultFont.__init__(self, size=12)
 
 
-class BigFont(DefaultFont):
+class BigFont(_DefaultFont):
     def __init__(self):
-        DefaultFont.__init__(self, size=16)
+        _DefaultFont.__init__(self, size=16)
 
 
 # - - - - - - - #
 # B U T T O N S #
 # - - - - - - - #
 
-class DefaultButton(ttk.Button):
+class _DefaultButton(ttk.Button):
     pass
 
 
-class RegularButton(DefaultButton):
+class RegularButton(_DefaultButton):
     pass
 
 # - - - - - - #
@@ -103,25 +103,25 @@ class RegularButton(DefaultButton):
 # - - - - - - #
 
 
-class DefaultEntry(ttk.Entry):
+class _DefaultEntry(ttk.Entry):
     pass
 
 
-class RegularEntry(DefaultEntry):
+class RegularEntry(_DefaultEntry):
     def __init__(self, *args, **kwargs):
-        DefaultEntry.__init__(self, font=RegularFont(), *args, **kwargs)
+        _DefaultEntry.__init__(self, font=RegularFont(), *args, **kwargs)
 
 
-class BigEntry(DefaultEntry):
+class BigEntry(_DefaultEntry):
     def __init__(self, *args, **kwargs):
-        DefaultEntry.__init__(self, font=BigFont(), *args, **kwargs)
+        _DefaultEntry.__init__(self, font=BigFont(), *args, **kwargs)
 
 
 # - - - - - #
 # T E X T S #
 # - - - - - #
 
-class DefaultText(tk.Text):
+class _DefaultText(tk.Text):
 
     def __init__(self, *args, **kwargs):
         tk.Text.__init__(self,
@@ -132,45 +132,46 @@ class DefaultText(tk.Text):
                          *args, **kwargs)
 
 
-class RegularText(DefaultText):
+class RegularText(_DefaultText):
     def __init__(self, *args, **kwargs):
-        DefaultText.__init__(self,
-                             font=RegularFont(),
-                             *args, **kwargs)
+        _DefaultText.__init__(self,
+                              font=RegularFont(),
+                              *args, **kwargs)
 
 
 # - - - - - - #
 # L A B E L S #
 # - - - - - - #
 
-class DefaultLabel(tk.Label):
+class _DefaultLabel(tk.Label):
     def __init__(self, *args, **kwargs):
         tk.Label.__init__(self,
                           bg=BackgroundColor().Get(),
                           *args, **kwargs)
 
 
-class RegularLabel(DefaultLabel):
+class RegularLabel(_DefaultLabel):
     def __init__(self, *args, **kwargs):
-        DefaultLabel.__init__(self,
-                              font=RegularFont(),
-                              *args, **kwargs)
+        _DefaultLabel.__init__(self,
+                               font=RegularFont(),
+                               *args, **kwargs)
 
     def grid(self, *args, **kwargs):
-        DefaultLabel.grid(self,
-                          padx=RegularPad().Get(),
-                          pady=RegularPad().Get(),
-                          *args, **kwargs)
+        _DefaultLabel.grid(self,
+                           padx=RegularPad().Get(),
+                           pady=RegularPad().Get(),
+                           *args, **kwargs)
 
 
-class BigLabel(DefaultLabel):
+class BigLabel(_DefaultLabel):
     def __init__(self, *args, **kwargs):
-        DefaultLabel.__init__(self,
-                              font=BigFont(),
-                              *args, **kwargs)
+        _DefaultLabel.__init__(self,
+                               font=BigFont(),
+                               *args, **kwargs)
 
     def grid(self, *args, **kwargs):
-        DefaultLabel.grid(self,
-                          padx=BigPad().Get(),
-                          pady=BigPad().Get(),
-                          *args, **kwargs)
+        _DefaultLabel.grid(self,
+                           padx=BigPad().Get(),
+                           pady=BigPad().Get(),
+                           *args, **kwargs)
+
