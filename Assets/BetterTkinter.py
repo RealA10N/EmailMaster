@@ -53,7 +53,9 @@ class BigPad(DefaultPad):
 # - - - - - - - #
 
 class Tk(tk.Tk):
-    pass
+    def __init__(self, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
+        self.config(bg=BackgroundColor().Get())
 
 
 class TopLevel(tk.Toplevel):
