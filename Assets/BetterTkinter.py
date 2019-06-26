@@ -159,6 +159,9 @@ class _DefaultLabel(tk.Label):
                           bg=BackgroundColor().Get(),
                           *args, **kwargs)
 
+    def BasicGrid(self, *args, **kwargs):
+        tk.Label.grid(self, *args, **kwargs)
+
 
 class RegularLabel(_DefaultLabel):
     def __init__(self, *args, **kwargs):
