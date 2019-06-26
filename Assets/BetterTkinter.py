@@ -73,6 +73,15 @@ class Frame(tk.Frame):
                           bg=BackgroundColor().Get(),
                           *args, **kwargs)
 
+    def BasicGrid(self, *args, **kwargs):
+        tk.Frame.grid(self, *args, **kwargs)
+
+    def grid(self, *args, **kwargs):
+        tk.Frame.grid(self,
+                      padx=RegularPad().Get(),
+                      pady=RegularPad().Get(),
+                      *args, **kwargs)
+
 
 # - - - - - #
 # F O N T S #
