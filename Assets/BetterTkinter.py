@@ -173,6 +173,19 @@ class RegularLabel(_DefaultLabel):
                            *args, **kwargs)
 
 
+class SmallLabel(_DefaultLabel):
+    def __init__(self, *args, **kwargs):
+        _DefaultLabel.__init__(self,
+                               font=SmallFont(),
+                               *args, **kwargs)
+
+    def grid(self, *args, **kwargs):
+        _DefaultLabel.grid(self,
+                           padx=SmallPad().Get(),
+                           pady=SmallPad().Get(),
+                           *args, **kwargs)
+
+
 class BigLabel(_DefaultLabel):
     def __init__(self, *args, **kwargs):
         _DefaultLabel.__init__(self,
