@@ -38,6 +38,11 @@ class _DefaultPad(_DefaultValue):
     pass
 
 
+class SmallPad(_DefaultPad):
+    def Get(self):
+        return 3
+
+
 class RegularPad(_DefaultPad):
     def Get(self):
         return 6
