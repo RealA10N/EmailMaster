@@ -21,14 +21,17 @@ class TitleFrame(tk.Frame):
 
 class NameEntry(tk.Frame):
 
-    def __init__(self, Name, DefaultEntry='', *args, **kwargs):
+    def __init__(self, Name, DefaultEntry='', EntryCh='', *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)
 
         self._value = tk.StringVar()
         self.SetValue(DefaultEntry)
 
-        tk.SmallLabel(self, text='{}:'.format(Name)).BasicGrid(sticky='w')
-        tk.RegularEntry(self, textvariable=self._value).grid()
+        self._Label = tk.SmallLabel(self, text='{}:'.format(Name))
+        self._Label.BasicGrid(sticky='w')
+
+        self._Entry = tk.RegularEntry(self, textvariable=self._value, show=EntryCh)
+        self._Entry.grid()
 
     def GetValue(self):
         return self._value.get()
