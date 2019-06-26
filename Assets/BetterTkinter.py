@@ -87,6 +87,11 @@ class RegularFont(_DefaultFont):
         _DefaultFont.__init__(self, size=12)
 
 
+class SmallFont(_DefaultFont):
+    def __init__(self):
+        _DefaultFont.__init__(self, size=8)
+
+
 class BigFont(_DefaultFont):
     def __init__(self):
         _DefaultFont.__init__(self, size=16)
