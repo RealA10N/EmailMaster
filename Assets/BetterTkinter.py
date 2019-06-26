@@ -62,6 +62,13 @@ class TopLevel(tk.Toplevel):
     pass
 
 
+class Frame(tk.Frame):
+    def __init__(self, *args, **kwargs):
+        tk.Frame.__init__(self,
+                          bg=BackgroundColor().Get(),
+                          *args, **kwargs)
+
+
 # - - - - - #
 # F O N T S #
 # - - - - - #
