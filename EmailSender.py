@@ -5,9 +5,11 @@ class Window(tk.Tk):
 
     def __init__(self):
         tk.Tk.__init__(self)
+        self.title("EmailSender")  # change the os title of window
+        TitleFrame(self).grid(row=0, column=0)  # adds title inside the window
 
-        self.title("EmailSender")
-        TitleFrame(self).grid()
+        NameEntryFrame('Your email').grid()
+        NameEntryFrame('Your email password', EntryCh='*').grid()
 
 
 class TitleFrame(tk.Frame):
@@ -19,24 +21,23 @@ class TitleFrame(tk.Frame):
         tk.SmallLabel(self, text='By RealA10N').BasicGrid()
 
 
-class NameEntry(tk.Frame):
+class _DefaultNameFrame(tk.Frame):
 
-    def __init__(self, Name, DefaultEntry='', EntryCh='', *args, **kwargs):
+    def __init__(self, Name, *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)
+        tk.SmallLabel(self, text='{}:'.format(Name)).BasicGrid(sticky='w')
+
+
+class NameEntryFrame(_DefaultNameFrame):
+
+    def __init__(self, Name, DefaultText='', EntryCh='', *args, **kwargs):
+        _DefaultNameFrame.__init__(self, Name, *args, **kwargs)
 
         self._value = tk.StringVar()
-        self.SetValue(DefaultEntry)
+        self.set(DefaultText)
+        tk.RegularEntry(self, textvariable=self._value, show=EntryCh).grid()
 
-        self._Label = tk.SmallLabel(self, text='{}:'.format(Name))
-        self._Label.BasicGrid(sticky='w')
-
-        self._Entry = tk.RegularEntry(self, textvariable=self._value, show=EntryCh)
-        self._Entry.grid()
-
-    def GetValue(self):
-        return self._value.get()
-
-    def SetValue(self, string):
+    def set(self, string):
         self._value.set(string)
 
 
