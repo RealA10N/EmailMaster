@@ -7,13 +7,16 @@ class Window(tk.Tk):
         tk.Tk.__init__(self)
 
         self.title("EmailSender")
+        TitleFrame(self).grid()
 
-        self.LoadWidgets()
 
-    def LoadWidgets(self):
+class TitleFrame(tk.Frame):
 
-        SenderEmail = tk.RegularEntry(self)
-        SenderEmail.grid()
+    def __init__(self, *args, **kwargs):
+        tk.Frame.__init__(self, *args, **kwargs)
+
+        tk.BigLabel(self, text='EmailSender').BasicGrid()
+        tk.SmallLabel(self, text='By RealA10N').BasicGrid()
 
 
 if __name__ == "__main__":
