@@ -198,3 +198,14 @@ class BigLabel(_DefaultLabel):
                            pady=BigPad().Get(),
                            *args, **kwargs)
 
+
+# - - - - #
+# V A R S #
+# - - - - #
+
+class StringVar(tk.StringVar):
+    pass
+
+
+class IntVar(tk.IntVar):
+    pass
