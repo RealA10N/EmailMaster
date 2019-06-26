@@ -144,7 +144,10 @@ class RegularText(DefaultText):
 # - - - - - - #
 
 class DefaultLabel(tk.Label):
-    pass
+    def __init__(self, *args, **kwargs):
+        tk.Label.__init__(self,
+                          bg=BackgroundColor().Get(),
+                          *args, **kwargs)
 
 
 class RegularLabel(DefaultLabel):
