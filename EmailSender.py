@@ -15,18 +15,23 @@ class Window(tk.Tk):
 # L A B E L   F R A M E S #
 # - - - - - - - - - - - - #
 
-class EmailContentFrame(tk.LabelFrame):
+class _DefaultLabelFrames(tk.LabelFrame):
+
+    def __init__(self, Master, Name, *args, **kwargs):
+        tk.LabelFrame.__init__(self, Master, Name)
+        tk.LabelFrame.grid(self, *args, **kwargs)
+
+
+class EmailContentFrame(_DefaultLabelFrames):
 
     def __init__(self, Master, *args, **kwargs):
-        tk.LabelFrame.__init__(self, Master, "Email info")
+        _DefaultLabelFrames.__init__(self, Master, "Email info", *args, **kwargs)
 
         self._EmailSubject = NameEntryFrame(self, 'Subject', width=30)
         self._EmailSubject.grid()
 
         self._EmailContent = NameTextFrame(self, 'Content', width=30)
         self._EmailContent.grid()
-
-        tk.LabelFrame.grid(self, *args, **kwargs)
 
     def SubjectEntry(self):
         return self.__EmailSubject
