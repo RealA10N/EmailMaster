@@ -9,6 +9,7 @@ class Window(tk.Tk):
 
         TitleFrame(self, row=0, column=0, columnspan=2)
         EmailContentFrame(self, row=1, column=0)
+        EmailSenderFrame(self, row=1, column=1, sticky='n')
 
 
 # - - - - - - - - - - - - #
@@ -20,6 +21,25 @@ class _DefaultLabelFrames(tk.LabelFrame):
     def __init__(self, Master, Name, *args, **kwargs):
         tk.LabelFrame.__init__(self, Master, Name)
         tk.LabelFrame.grid(self, *args, **kwargs)
+
+
+class EmailSenderFrame(_DefaultLabelFrames):
+
+    def __init__(self, Master, *args, **kwargs):
+        _DefaultLabelFrames.__init__(self, Master, "Sender info", *args, **kwargs)
+
+        self._SenderEmail = NameEntryFrame(self, 'Sender address', width=20)
+        self._SenderEmail.grid(columnspan=2)
+
+        self._SenderPass = NameEntryFrame(
+            self, 'Sender password', EntryCh='*', width=20)
+        self._SenderPass.grid(columnspan=2)
+
+    def EmailEntry(self):
+        return self._SenderEmail
+
+    def PasswordEntry(self):
+        return self._SenderPass
 
 
 class EmailContentFrame(_DefaultLabelFrames):
