@@ -247,3 +247,37 @@ class StringVar(tk.StringVar):
 
 class IntVar(tk.IntVar):
     pass
+
+
+# - - - - - - - #
+# L I S T B O X #
+# - - - - - - - #
+
+class _DefaultListbox(tk.Listbox):
+
+    def DeleteSelected(self):
+        Selection = reversed(self.curselection())
+        for SelectedIndex in Selection:
+            self.delete(SelectedIndex)
+
+    def AddItem(self, String):
+        self.insert('end', String)
+
+    def AddItems(self, StringsList):
+        for String in StringsList:
+            self.AddItem(String)
+
+    def DeleteAll(self):
+        self.delete(0, 'end')
+
+
+class RegularListox(_DefaultListbox):
+
+    def __init__(self, Master, *args, **kwargs):
+        _DefaultListbox.__init__(self, Master,
+                                 font=RegularFont(),
+                                 relief='flat',
+                                 highlightthickness=1,
+                                 highlightcolor=SelectedColor().Get(),
+                                 highlightbackground=DeselectedColor().Get(),
+                                 *args, **kwargs)
