@@ -59,7 +59,7 @@ class NameEntryFrame(_DefaultNameFrame):
 
         self._value = tk.StringVar()
         self.set(DefaultText)
-        tk.RegularEntry(self, textvariable=self._value, show=EntryCh).grid()
+        tk.RegularEntry(self, textvariable=self._value, show=EntryCh, width=width).grid()
 
     def set(self, string):
         self._value.set(string)
