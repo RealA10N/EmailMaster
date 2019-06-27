@@ -6,10 +6,9 @@ class Window(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self.title("EmailSender")  # change the os title of window
-        TitleFrame(self).grid(row=0, column=0)  # adds title inside the window
 
-        NameEntryFrame('Your email').grid()
-        NameEntryFrame('Your email password', EntryCh='*').grid()
+        TitleFrame(self, row=0, column=0, columnspan=2)
+        EmailContentFrame(self, row=1, column=0)
 
 
 # - - - - - - - - - - - - #
@@ -38,11 +37,13 @@ class EmailContentFrame(tk.LabelFrame):
 
 class TitleFrame(tk.Frame):
 
-    def __init__(self, *args, **kwargs):
-        tk.Frame.__init__(self, *args, **kwargs)
+    def __init__(self, Master, *args, **kwargs):
+        tk.Frame.__init__(self, Master)
 
         tk.BigLabel(self, text='EmailSender').BasicGrid()
         tk.SmallLabel(self, text='By RealA10N').BasicGrid()
+
+        tk.Frame.grid(self, *args, **kwargs)
 
 
 class _DefaultNameFrame(tk.Frame):
