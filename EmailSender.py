@@ -23,15 +23,15 @@ class TitleFrame(tk.Frame):
 
 class _DefaultNameFrame(tk.Frame):
 
-    def __init__(self, Name, *args, **kwargs):
-        tk.Frame.__init__(self, *args, **kwargs)
+    def __init__(self, Master, Name, *args, **kwargs):
+        tk.Frame.__init__(self, Master, *args, **kwargs)
         tk.SmallLabel(self, text='{}:'.format(Name)).BasicGrid(sticky='w')
 
 
 class NameEntryFrame(_DefaultNameFrame):
 
-    def __init__(self, Name, DefaultText='', EntryCh='', *args, **kwargs):
-        _DefaultNameFrame.__init__(self, Name, *args, **kwargs)
+    def __init__(self, Master, Name, DefaultText='', EntryCh='', width=30, *args, **kwargs):
+        _DefaultNameFrame.__init__(self, Master, Name, *args, **kwargs)
 
         self._value = tk.StringVar()
         self.set(DefaultText)
