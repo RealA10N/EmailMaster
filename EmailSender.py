@@ -57,6 +57,9 @@ class NameTextFrame(_DefaultNameFrame):
         self.clear()
         self._Text.insert('end', string)
 
+    def get(self):
+        return self._Text.get('1,0', 'end')
+
 
 if __name__ == "__main__":
     root = Window()
