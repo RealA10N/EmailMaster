@@ -130,11 +130,18 @@ class BigFont(_DefaultFont):
 # - - - - - - - #
 
 class _DefaultButton(ttk.Button):
-    pass
+
+    def BasicGrid(self, *args, **kwargs):
+        ttk.Button.grid(self, *args, **kwargs)
 
 
 class RegularButton(_DefaultButton):
-    pass
+
+    def grid(self, *args, **kwargs):
+        _DefaultButton.grid(self,
+                            padx=RegularPad().Get(),
+                            pady=RegularPad().Get(),
+                            *args, **kwargs)
 
 # - - - - - - #
 # E N T R Y S #
