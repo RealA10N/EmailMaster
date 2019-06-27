@@ -41,6 +41,24 @@ class NameEntryFrame(_DefaultNameFrame):
         self._value.set(string)
 
 
+class NameTextFrame(_DefaultNameFrame):
+
+    def __init__(self, Master,
+                 Name, DefaultText='', EntryCh='',
+                 width=30, height=10, *args, **kwargs):
+        _DefaultNameFrame.__init__(self, Master, Name, *args, **kwargs)
+
+        self._Text = tk.RegularText(self, width=width, height=height)
+        self._Text.grid()
+
+    def clear(self):
+        self._Text.delete('1.0', 'end')
+
+    def set(self, string):
+        self.clear()
+        self._Text.insert('end', string)
+
+
 if __name__ == "__main__":
     root = Window()
     root.mainloop()
