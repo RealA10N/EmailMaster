@@ -83,6 +83,25 @@ class Frame(tk.Frame):
                       *args, **kwargs)
 
 
+class LabelFrame(tk.LabelFrame):
+    def __init__(self, Master, Text, *args, **kwargs):
+        tk.LabelFrame.__init__(self, Master,
+                               bg=BackgroundColor().Get(),
+                               text=" {} ".format(Text),
+                               relief='ridge',
+                               font=RegularFont(),
+                               *args, **kwargs)
+
+    def BasicGrid(self, *args, **kwargs):
+        tk.LabelFrame.grid(self, *args, **kwargs)
+
+    def grid(self, *args, **kwargs):
+        tk.LabelFrame.grid(self,
+                           padx=RegularPad().Get(),
+                           pady=RegularPad().Get(),
+                           *args, **kwargs)
+
+
 # - - - - - #
 # F O N T S #
 # - - - - - #
