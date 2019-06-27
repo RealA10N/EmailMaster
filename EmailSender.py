@@ -12,6 +12,30 @@ class Window(tk.Tk):
         NameEntryFrame('Your email password', EntryCh='*').grid()
 
 
+# - - - - - - - - - - - - #
+# L A B E L   F R A M E S #
+# - - - - - - - - - - - - #
+
+class EmailContentFrame(tk.LabelFrame):
+
+    def __init__(self, Master, *args, **kwargs):
+        tk.LabelFrame.__init__(self, Master, "Email info")
+
+        self._EmailSubject = NameEntryFrame(self, 'Subject', width=30)
+        self._EmailSubject.grid()
+
+        self._EmailContent = NameTextFrame(self, 'Content', width=30)
+        self._EmailContent.grid()
+
+        tk.LabelFrame.grid(self, *args, **kwargs)
+
+    def SubjectEntry(self):
+        return self.__EmailSubject
+
+    def ContentTextField(self):
+        return self._EmailContent
+
+
 class TitleFrame(tk.Frame):
 
     def __init__(self, *args, **kwargs):
