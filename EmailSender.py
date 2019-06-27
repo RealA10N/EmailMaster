@@ -43,8 +43,7 @@ class NameEntryFrame(_DefaultNameFrame):
 
 class NameTextFrame(_DefaultNameFrame):
 
-    def __init__(self, Master,
-                 Name, DefaultText='', EntryCh='',
+    def __init__(self, Master, Name,
                  width=30, height=10, *args, **kwargs):
         _DefaultNameFrame.__init__(self, Master, Name, *args, **kwargs)
 
