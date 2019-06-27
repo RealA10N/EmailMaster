@@ -68,8 +68,8 @@ class TopLevel(tk.Toplevel):
 
 
 class Frame(tk.Frame):
-    def __init__(self, *args, **kwargs):
-        tk.Frame.__init__(self,
+    def __init__(self, Master, *args, **kwargs):
+        tk.Frame.__init__(self, Master,
                           bg=BackgroundColor().Get(),
                           *args, **kwargs)
 
