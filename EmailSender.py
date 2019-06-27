@@ -51,6 +51,10 @@ class TitleFrame(tk.Frame):
         tk.Frame.grid(self, *args, **kwargs)
 
 
+# - - - - - - - - - - - #
+# N A M E   F R A M E S #
+# - - - - - - - - - - - #
+
 class _DefaultNameFrame(tk.Frame):
 
     def __init__(self, Master, Name, *args, **kwargs):
@@ -90,6 +94,10 @@ class NameTextFrame(_DefaultNameFrame):
     def get(self):
         return self._Text.get('1,0', 'end')
 
+
+# - - - - #
+# M A I N #
+# - - - - #
 
 if __name__ == "__main__":
     root = Window()
