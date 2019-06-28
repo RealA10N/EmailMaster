@@ -54,7 +54,7 @@ class EmailContentFrame(_DefaultLabelFrames):
         self._EmailContent.grid()
 
     def SubjectEntry(self):
-        return self.__EmailSubject
+        return self._EmailSubject
 
     def ContentTextField(self):
         return self._EmailContent
@@ -93,6 +93,9 @@ class NameEntryFrame(_DefaultNameFrame):
 
     def set(self, string):
         self._value.set(string)
+
+    def get(self):
+        return self._value.get()
 
 
 class NameTextFrame(_DefaultNameFrame):
