@@ -270,6 +270,9 @@ class _DefaultListbox(tk.Listbox):
     def DeleteAll(self):
         self.delete(0, 'end')
 
+    def BasicGrid(self, *args, **kwargs):
+        tk.Label.grid(self, *args, **kwargs)
+
 
 class RegularListox(_DefaultListbox):
 
@@ -281,3 +284,9 @@ class RegularListox(_DefaultListbox):
                                  highlightcolor=SelectedColor().Get(),
                                  highlightbackground=DeselectedColor().Get(),
                                  *args, **kwargs)
+
+    def grid(self, *args, **kwargs):
+        _DefaultListbox.grid(self,
+                             padx=RegularPad().Get(),
+                             pady=RegularPad().Get(),
+                             *args, **kwargs)
