@@ -5,7 +5,8 @@ class Window(tk.Tk):
 
     def __init__(self):
         tk.Tk.__init__(self)
-        self.title("EmailSender")  # change the os title of window
+        self.title("Email Sender")  # change the os title of window
+        self.resizable(False, False)
 
         TitleFrame(self, row=0, column=0, columnspan=2)
 
