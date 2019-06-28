@@ -8,8 +8,16 @@ class Window(tk.Tk):
         self.title("EmailSender")  # change the os title of window
 
         TitleFrame(self, row=0, column=0, columnspan=2)
-        EmailContentFrame(self, row=1, column=0)
-        EmailSenderFrame(self, row=1, column=1, sticky='n')
+
+        LeftFrame = tk.Frame(self)
+        LeftFrame.BasicGrid(row=1, column=0, sticky='n')
+
+        RightFrame = tk.Frame(self)
+        RightFrame.BasicGrid(row=1, column=1, sticky='n')
+
+        EmailContentFrame(LeftFrame, row=0, column=0)
+        EmailSenderFrame(RightFrame, row=0, column=0)
+        AttachFilesFrame(RightFrame, row=1, column=0)
 
 
 # - - - - - - - - - - - - #
