@@ -53,11 +53,11 @@ class EmailSenderFrame(_DefaultLabelFrames):
         _DefaultLabelFrames.__init__(self, Master, "Sender info", *args, **kwargs)
 
         self._SenderEmail = NameEntryFrame(self, 'Sender address', width=20)
-        self._SenderEmail.grid(columnspan=2)
+        self._SenderEmail.grid()
 
         self._SenderPass = NameEntryFrame(
             self, 'Sender password', EntryCh='*', width=20)
-        self._SenderPass.grid(columnspan=2)
+        self._SenderPass.grid()
 
     def EmailEntry(self):
         return self._SenderEmail
