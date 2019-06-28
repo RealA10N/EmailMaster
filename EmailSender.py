@@ -16,6 +16,7 @@ class Window(tk.Tk):
         RightFrame.BasicGrid(row=1, column=1, sticky='n')
 
         EmailContentFrame(LeftFrame, row=0, column=0)
+        SendEmailFrame(LeftFrame, row=1, column=0)
         EmailSenderFrame(RightFrame, row=0, column=0)
         AttachFilesFrame(RightFrame, row=1, column=0)
 
@@ -72,6 +73,17 @@ class EmailSenderFrame(_DefaultLabelFrames):
 
     def PasswordEntry(self):
         return self._SenderPass
+
+
+class SendEmailFrame(_DefaultLabelFrames):
+    def __init__(self, Master, *args, **kwargs):
+        _DefaultLabelFrames.__init__(self, Master, "Send", *args, **kwargs)
+
+        self._EmailAddressee = NameEntryFrame(self, 'Addressee', width=30)
+        self._EmailAddressee.grid()
+
+        self._SendButton = tk.RegularButton(self, text='Send!')
+        self._SendButton.grid()
 
 
 class EmailContentFrame(_DefaultLabelFrames):
