@@ -23,6 +23,30 @@ class _DefaultLabelFrames(tk.LabelFrame):
         tk.LabelFrame.grid(self, *args, **kwargs)
 
 
+class AttachFilesFrame(_DefaultLabelFrames):
+
+    def __init__(self, Master, *args, **kwargs):
+        _DefaultLabelFrames.__init__(self, Master, "Attach Files", *args, **kwargs)
+
+        self._FilesListbox = tk.RegularListox(self, selectmode='extended', width=20)
+        self._FilesListbox.grid()
+
+        self._FileButtons = AttachFilesButtons(self)
+        self._FileButtons.BasicGrid()
+
+
+class AttachFilesButtons(tk.Frame):
+
+    def __init__(self, Master, *args, **kwargs):
+        tk.Frame.__init__(self, Master, *args, **kwargs)
+
+        self._AddButton = tk.RegularButton(self, text="Add files", width=10)
+        self._AddButton.grid(row=0, column=0)
+
+        self._ClearButton = tk.RegularButton(self, text="Delete selected", width=15)
+        self._ClearButton.grid(row=0, column=1)
+
+
 class EmailSenderFrame(_DefaultLabelFrames):
 
     def __init__(self, Master, *args, **kwargs):
