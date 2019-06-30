@@ -175,6 +175,30 @@ class NameTextFrame(_DefaultNameFrame):
         return self._Text.get('1,0', 'end')
 
 
+# - - - - - - - - - - - - - - - #
+# C U S T O M   E L E M E N T S #
+# - - - - - - - - - - - - - - - #
+
+class SendButton(tk.RegularButton):
+
+    def __init__(self, master, *args, **kwargs):
+        tk.RegularButton.__init__(self, master)
+
+        self.SetSendProfile()
+        self.ConfigFunc(lambda: self.SetSendingProfile())
+
+        tk.RegularButton.grid(self, *args, **kwargs)
+
+    def ConfigFunc(self, FuncPointer):
+        self.config(command=FuncPointer)
+
+    def SetSendProfile(self):
+        self.config(text="Send!", state='normal')
+
+    def SetSendingProfile(self):
+        self.config(text="Sending...", state='disabled')
+
+
 # - - - - #
 # M A I N #
 # - - - - #
