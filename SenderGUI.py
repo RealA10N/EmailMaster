@@ -74,17 +74,17 @@ class AttachFilesButtons(tk.Frame):
         self._DeleteButton = tk.RegularButton(self, text="Delete selected", width=15)
         self._DeleteButton.grid(row=0, column=1)
 
-    def _AddButton(self):
+    def _GetAddButton(self):
         return self._AddButton
 
-    def _DeleteButton(self):
+    def _GetDeleteButton(self):
         return self._DeleteButton
 
     def ConfigAddButtonFunc(self, func):
-        self._AddButton().config(command=func)
+        self._GetAddButton().config(command=func)
 
     def ConfigDeleteButtonFunc(self, func):
-        self._DeleteButton().config(command=func)
+        self._GetDeleteButton().config(command=func)
 
 
 class EmailSenderFrame(_DefaultLabelFrames):
