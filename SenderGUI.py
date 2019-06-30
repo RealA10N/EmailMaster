@@ -163,15 +163,8 @@ class NameTextFrame(_DefaultNameFrame):
         self._Text = tk.RegularText(self, width=width, height=height)
         self._Text.grid()
 
-    def clear(self):
-        self._Text.delete('1.0', 'end')
-
-    def set(self, string):
-        self.clear()
-        self._Text.insert('end', string)
-
     def get(self):
-        return self._Text.get('1,0', 'end')
+        return self._Text.get()
 
 
 # - - - - - - - - - - - - - - - #
