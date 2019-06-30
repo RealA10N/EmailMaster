@@ -78,10 +78,10 @@ class EmailSenderFrame(_DefaultLabelFrames):
             self, 'Sender password', EntryCh='*', width=20)
         self._SenderPass.grid()
 
-    def EmailEntry(self):
+    def _AddressEntry(self):
         return self._SenderEmail
 
-    def PasswordEntry(self):
+    def _PasswordEntry(self):
         return self._SenderPass
 
 
