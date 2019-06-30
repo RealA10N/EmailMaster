@@ -176,6 +176,19 @@ class _DefaultText(tk.Text):
                          highlightbackground=DeselectedColor().Get(),
                          *args, **kwargs)
 
+    def get(self):
+        return tk.Text.get(self, 1.0, 'end')
+
+    def clear(self):
+        self._Text.delete('1.0', 'end')
+
+    def set(self, string):
+        self.clear()
+        self._Text.insert('end', string)
+
+    def BasicGet(self, *args, **kwargs):
+        tk.Text.get(self, *args, **kwargs)
+
 
 class RegularText(_DefaultText):
     def __init__(self, *args, **kwargs):
