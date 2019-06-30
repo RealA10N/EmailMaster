@@ -1,4 +1,5 @@
 import Assets.BetterTkinter as tk
+from os import path
 
 
 class Window(tk.Tk):
@@ -61,6 +62,31 @@ class AttachFilesFrame(_DefaultLabelFrames):
 
         self._FileButtons = AttachFilesButtons(self)
         self._FileButtons.BasicGrid()
+
+        self._FileButtons.ConfigAddButtonFunc(lambda: self.AddFiles())
+        self._FileButtons.ConfigDeleteButtonFunc(lambda: self.DeleteSelectedFile())
+
+        self._FilePaths = []
+
+    def _GetFilesListbox(self):
+        return self._FilesListbox
+
+    def AddFiles(self):
+        NewFiles = tk.askopenfilenames(title="Selecte files")
+
+        for FilePath in NewFiles:
+            self._GetFilesListbox().AddItem(path.basename(FilePath))  # add basename to gui
+            self._FilePaths.append(FilePath)  # add full path to list
+
+    def DeleteSelectedFile(self):
+        SelectedIndexes = reversed(self._GetFilesListbox().GetSelectedIndexes())
+
+        for Index in SelectedIndexes:
+            self._GetFilesListbox().delete(Index)  # remove basename from gui
+            self._FilePaths.pop(Index)  # remove full path from list
+
+    def GetFilesPaths(self):
+        return self._FilePaths
 
 
 class AttachFilesButtons(tk.Frame):
