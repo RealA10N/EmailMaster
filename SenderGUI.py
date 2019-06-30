@@ -89,8 +89,7 @@ class SendEmailFrame(_DefaultLabelFrames):
         self._EmailAddressee = NameEntryFrame(self, 'Addressee', width=30)
         self._EmailAddressee.grid()
 
-        self._SendButton = tk.RegularButton(self, text='Send!')
-        self._SendButton.grid()
+        self._SendButton = SendButton(self)
 
     def ConfigSendButtonFunc(self, func):
         self._SendButton.config(command=func)
