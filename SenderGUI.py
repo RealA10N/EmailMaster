@@ -30,6 +30,11 @@ class Window(tk.Tk):
     def GetContent(self):
         return self._EmailContentFrame.GetContent()
 
+    def GetSenderAddress(self):
+        return self._EmailSenderFrame.GetSenderAddress()
+
+    def GetSenderPassword(self):
+        return self._EmailSenderFrame.GetSenderPassword()
 
 # - - - - - - - - - - - - #
 # L A B E L   F R A M E S #
@@ -83,6 +88,12 @@ class EmailSenderFrame(_DefaultLabelFrames):
 
     def _PasswordEntry(self):
         return self._SenderPass
+
+    def GetSenderAddress(self):
+        return self._AddressEntry().get()
+
+    def GetSenderPassword(self):
+        return self._PasswordEntry().get()
 
 
 class SendEmailFrame(_DefaultLabelFrames):
