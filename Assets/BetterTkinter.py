@@ -273,6 +273,9 @@ class _DefaultListbox(tk.Listbox):
         for SelectedIndex in Selection:
             self.delete(SelectedIndex)
 
+    def GetSelectedIndexes(self):
+        return self.curselection()
+
     def AddItem(self, String):
         self.insert('end', String)
 
