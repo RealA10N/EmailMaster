@@ -27,6 +27,9 @@ class Window(tk.Tk):
     def GetSubject(self):
         return self._EmailContentFrame.GetSubject()
 
+    def GetContent(self):
+        return self._EmailContentFrame.GetContent()
+
 
 # - - - - - - - - - - - - #
 # L A B E L   F R A M E S #
@@ -114,6 +117,9 @@ class EmailContentFrame(_DefaultLabelFrames):
 
     def GetSubject(self):
         return self._SubjectEntry().get()
+
+    def GetContent(self):
+        return self._ContentTextField().get()
 
 
 class TitleFrame(tk.Frame):
