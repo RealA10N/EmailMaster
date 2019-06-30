@@ -108,6 +108,9 @@ class SendEmailFrame(_DefaultLabelFrames):
     def ConfigSendButtonFunc(self, func):
         self._SendButton.ConfigFunc(func)
 
+    def _AddresseeEntry(self):
+        return self._EmailAddressee
+
 
 class EmailContentFrame(_DefaultLabelFrames):
 
