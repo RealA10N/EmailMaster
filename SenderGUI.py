@@ -92,7 +92,7 @@ class SendEmailFrame(_DefaultLabelFrames):
         self._SendButton = SendButton(self)
 
     def ConfigSendButtonFunc(self, func):
-        self._SendButton.config(command=func)
+        self._SendButton.ConfigFunc(func)
 
 
 class EmailContentFrame(_DefaultLabelFrames):
@@ -181,21 +181,30 @@ class NameTextFrame(_DefaultNameFrame):
 class SendButton(tk.RegularButton):
 
     def __init__(self, master, *args, **kwargs):
-        tk.RegularButton.__init__(self, master)
-
-        self.SetSendProfile()
-        self.ConfigFunc(lambda: self.SetSendingProfile())
-
+        tk.RegularButton.__init__(self, master, command=lambda: self.ButtonClick())
         tk.RegularButton.grid(self, *args, **kwargs)
 
+        self._Enabled = None
+        self._ClickFunc = None
+
+        self.SetSendProfile()
+
+    def ButtonClick(self):
+        if self._Enabled:
+            self.SetSendingProfile()
+            if self._ClickFunc is not None:
+                self._ClickFunc()
+
     def ConfigFunc(self, FuncPointer):
-        self.config(command=FuncPointer)
+        self._ClickFunc = FuncPointer
 
     def SetSendProfile(self):
         self.config(text="Send!", state='normal')
+        self._Enabled = True
 
     def SetSendingProfile(self):
         self.config(text="Sending...", state='disabled')
+        self._Enabled = False
 
 
 # - - - - #
