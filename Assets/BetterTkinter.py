@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, font
+from tkinter import ttk, font, filedialog
 
 
 class _DefaultValue():
@@ -303,3 +303,11 @@ class RegularListox(_DefaultListbox):
                              padx=RegularPad().Get(),
                              pady=RegularPad().Get(),
                              *args, **kwargs)
+
+
+# - - - - - - - - - - - #
+# F I L E   D I A L O G #
+# - - - - - - - - - - - #
+
+def askopenfilenames(*args, **kwargs):
+    return filedialog.askopenfilenames(*args, **kwargs)
