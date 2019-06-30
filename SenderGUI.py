@@ -71,8 +71,14 @@ class AttachFilesButtons(tk.Frame):
         self._AddButton = tk.RegularButton(self, text="Add files", width=10)
         self._AddButton.grid(row=0, column=0)
 
-        self._ClearButton = tk.RegularButton(self, text="Delete selected", width=15)
-        self._ClearButton.grid(row=0, column=1)
+        self._DeleteButton = tk.RegularButton(self, text="Delete selected", width=15)
+        self._DeleteButton.grid(row=0, column=1)
+
+    def _AddButton(self):
+        return self._AddButton
+
+    def _DeleteButton(self):
+        return self._DeleteButton
 
 
 class EmailSenderFrame(_DefaultLabelFrames):
