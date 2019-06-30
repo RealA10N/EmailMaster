@@ -21,6 +21,9 @@ class Window(tk.Tk):
         self._EmailSenderFrame = EmailSenderFrame(RightFrame, row=0, column=0)
         self._AttachFilesFrame = AttachFilesFrame(RightFrame, row=1, column=0)
 
+    def ConfigSendButtonFunc(self, func):
+        self._SendEmailFrame.ConfigSendButtonFunc(func)
+
 
 # - - - - - - - - - - - - #
 # L A B E L   F R A M E S #
@@ -85,6 +88,9 @@ class SendEmailFrame(_DefaultLabelFrames):
 
         self._SendButton = tk.RegularButton(self, text='Send!')
         self._SendButton.grid()
+
+    def ConfigSendButtonFunc(self, func):
+        self._SendButton.config(command=func)
 
 
 class EmailContentFrame(_DefaultLabelFrames):
