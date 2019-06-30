@@ -24,6 +24,9 @@ class Window(tk.Tk):
     def ConfigSendButtonFunc(self, func):
         self._SendEmailFrame.ConfigSendButtonFunc(func)
 
+    def GetSubject(self):
+        return self._EmailContentFrame.GetSubject()
+
 
 # - - - - - - - - - - - - #
 # L A B E L   F R A M E S #
@@ -104,11 +107,14 @@ class EmailContentFrame(_DefaultLabelFrames):
         self._EmailContent = NameTextFrame(self, 'Content', width=30)
         self._EmailContent.grid()
 
-    def SubjectEntry(self):
+    def _SubjectEntry(self):
         return self._EmailSubject
 
-    def ContentTextField(self):
+    def _ContentTextField(self):
         return self._EmailContent
+
+    def GetSubject(self):
+        return self._SubjectEntry().get()
 
 
 class TitleFrame(tk.Frame):
