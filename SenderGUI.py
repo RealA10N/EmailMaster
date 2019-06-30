@@ -80,6 +80,12 @@ class AttachFilesButtons(tk.Frame):
     def _DeleteButton(self):
         return self._DeleteButton
 
+    def ConfigAddButtonFunc(self, func):
+        self._AddButton().config(command=func)
+
+    def ConfigDeleteButtonFunc(self, func):
+        self._DeleteButton().config(command=func)
+
 
 class EmailSenderFrame(_DefaultLabelFrames):
 
