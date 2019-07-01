@@ -40,6 +40,9 @@ class Window(tk.Tk):
     def GetAddressee(self):
         return self._SendEmailFrame.GetAddressee()
 
+    def GetFilePaths(self):
+        return self._AttachFilesFrame.GetFilePaths()
+
     def SetSendProfile(self):
         self._SendEmailFrame.SetSendProfile()
 
@@ -91,7 +94,7 @@ class AttachFilesFrame(_DefaultLabelFrames):
             self._GetFilesListbox().delete(Index)  # remove basename from gui
             self._FilePaths.pop(Index)  # remove full path from list
 
-    def GetFilesPaths(self):
+    def GetFilePaths(self):
         return self._FilePaths
 
 
