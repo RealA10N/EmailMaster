@@ -24,5 +24,9 @@ class GrapicPopup():
         messagebox.showinfo(*self._TitleDescArgs)
 
 
+class FailedToSendEmail(Exception):
+    pass  # Exception class
+
+
 if __name__ == "__main__":
     EmailMaster()
