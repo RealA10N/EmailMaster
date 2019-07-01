@@ -263,10 +263,8 @@ class SendButton(tk.RegularButton):
         self.SetSendProfile()
 
     def ButtonClick(self):
-        if self._Enabled:
-            self.SetSendingProfile()
-            if self._ClickFunc is not None:
-                self._ClickFunc()
+        if self._Enabled and self._ClickFunc is not None:
+            self._ClickFunc()
 
     def ConfigFunc(self, FuncPointer):
         self._ClickFunc = FuncPointer
