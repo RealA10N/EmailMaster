@@ -40,6 +40,12 @@ class Window(tk.Tk):
     def GetAddressee(self):
         return self._SendEmailFrame.GetAddressee()
 
+    def SetSendProfile(self):
+        self._SendEmailFrame.SetSendProfile()
+
+    def SetSendingProfile(self):
+        self._SendEmailFrame.SetSendingProfile()
+
 
 # - - - - - - - - - - - - #
 # L A B E L   F R A M E S #
@@ -152,6 +158,12 @@ class SendEmailFrame(_DefaultLabelFrames):
 
     def ConfigSendButtonFunc(self, func):
         self._GetSendButton().ConfigFunc(func)
+
+    def SetSendProfile(self):
+        self._GetSendButton().SetSendProfile()
+
+    def SetSendingProfile(self):
+        self._GetSendButton().SetSendingProfile()
 
     def _AddresseeEntry(self):
         return self._EmailAddressee
