@@ -1,4 +1,5 @@
 from SenderGUI import Window
+from threading import Thread
 from tkinter import messagebox
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -13,7 +14,36 @@ class EmailMaster():
     def __init__(self):
 
         self._Window = Window()
-        self._Window.mainloop()
+
+        self.Window().ConfigSendButtonFunc(self.SendButtonClick)
+
+        self.Window().mainloop()
+
+    def Window(self):
+        return self._Window
+
+    def SendButtonClick(self):
+        self.Window().SetSendingProfile()
+        SendThread = Thread(target=self.SendEmail)
+        SendThread.start()  # self.SendEmail()
+
+    def SendEmail(self):
+        email = Email(SenderEmail=self.Window().GetSenderAddress(),
+                      SenderPassword=self.Window().GetSenderPassword(),
+                      Addressee=self.Window().GetAddressee(),
+                      Subject=self.Window().GetSubject(),
+                      Content=self.Window().GetContent(),
+                      FilePaths=self.Window().GetFilePaths())
+
+        try:
+            email.Send()
+        except FailedToSendEmail as Messege:
+            self._RaiseErrorPopup(Messege)
+
+        self.Window().SetSendProfile()
+
+    def _RaiseErrorPopup(self, ErrorMessege):
+        GrapicPopup("Failed to send email", ErrorMessege).ShowError()
 
 
 class Email():
