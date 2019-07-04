@@ -279,12 +279,3 @@ class SendButton(tk.RegularButton):
     def SetSendingProfile(self):
         self.config(text="Sending...", state='disabled')
         self._Enabled = False
-
-
-# - - - - #
-# M A I N #
-# - - - - #
-
-if __name__ == "__main__":
-    root = Window()
-    root.mainloop()
