@@ -230,6 +230,18 @@ class _DefaultText(tk.Text):
     def BasicGet(self, *args, **kwargs):
         tk.Text.get(self, *args, **kwargs)
 
+    def GetConfig(self):
+        return ConfigText(self)
+
+
+class ConfigText(_DefaultConfig):
+
+    def get(self):
+        return self._GetWidget().get()
+
+    def set(self, string):
+        self._GetWidget().set(string)
+
 
 class RegularText(_DefaultText):
     def __init__(self, *args, **kwargs):
