@@ -9,10 +9,10 @@ class _DefaultValue():
 
 class _DefaultConfig():
 
-    # a class to get and set wigets without touching them,
-    # using 2 simple methods - get() and set().
-    # useful for letting outer scripts control and use gui elements,
-    # without passing the elements themself out.
+    ''' A class to get and set wigets without touching them,
+    using 2 simple methods - get() and set().
+    useful for letting outer scripts control and use gui elements,
+    without passing the elements themself out.'''
 
     def __init__(self, widget):
         self._Widget = widget
