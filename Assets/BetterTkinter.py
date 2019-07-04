@@ -169,7 +169,18 @@ class RegularButton(_DefaultButton):
 
 
 class _DefaultEntry(ttk.Entry):
-    pass
+
+    def GetConfig(self):
+        return ConfigEntry(self)
+
+
+class ConfigEntry(_DefaultConfig):
+
+    def get(self):
+        return self._GetWidget().get()
+
+    def set(self, string):
+        self._GetWidget().set(string)
 
 
 class RegularEntry(_DefaultEntry):
