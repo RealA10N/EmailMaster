@@ -243,11 +243,11 @@ class NameTextFrame(_DefaultNameFrame):
                  width=30, height=10, *args, **kwargs):
         _DefaultNameFrame.__init__(self, Master, Name, *args, **kwargs)
 
-        self._Text = tk.RegularText(self, width=width, height=height)
-        self._Text.grid()
+        self._Widget = tk.RegularText(self, width=width, height=height)
+        self._Widget.grid()
 
     def get(self):
-        return self._Text.get()
+        return self._Widget.get()
 
 
 # - - - - - - - - - - - - - - - #
