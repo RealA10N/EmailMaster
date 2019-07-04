@@ -170,6 +170,13 @@ class RegularButton(_DefaultButton):
 
 class _DefaultEntry(ttk.Entry):
 
+    def clear(self):  # deletes all
+        self.delete(0, 'end')
+
+    def set(self, string):
+        self.clear()
+        self.insert(0, string)
+
     def GetConfig(self):
         return ConfigEntry(self)
 
