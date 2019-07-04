@@ -1,4 +1,4 @@
-from SenderGUI import Window
+from Assets.SenderGUI import Window
 from threading import Thread
 from tkinter import messagebox
 import Assets.EmailSender as Sender
