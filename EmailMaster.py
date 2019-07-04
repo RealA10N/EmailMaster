@@ -27,7 +27,7 @@ class EmailMaster():
                              SenderPassword=self.Window().SenderPassword().get(),
                              Addressee=self.Window().Addressee().get(),
                              Subject=self.Window().Subject().get(),
-                             Content=self.Window().GetContent(),
+                             Content=self.Window().Content().get(),
                              FilePaths=self.Window().GetFilePaths())
 
         try:

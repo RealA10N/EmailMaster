@@ -28,8 +28,8 @@ class Window(tk.Tk):
     def Subject(self):
         return self._EmailContentFrame.Subject()
 
-    def GetContent(self):
-        return self._EmailContentFrame.GetContent()
+    def Content(self):
+        return self._EmailContentFrame.Content()
 
     def SenderAddress(self):
         return self._EmailSenderFrame.SenderAddress()
@@ -195,8 +195,8 @@ class EmailContentFrame(_DefaultLabelFrames):
     def Subject(self):
         return self._SubjectEntry().GetConfig()
 
-    def GetContent(self):
-        return self._ContentTextField().get()
+    def Content(self):
+        return self._ContentTextField().GetConfig()
 
 
 class TitleFrame(tk.Frame):
