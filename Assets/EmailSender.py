@@ -82,6 +82,14 @@ class Email():
         Msg = self._GetMsg()
         self._Server.sendmail(self._SenderEmail, self._Addressee, Msg)
 
+    def Test(self):
+        print(f'SenderEmail: {self._SenderEmail}')
+        print(f'SenderPass: {self._SenderPassword}')
+        print(f'Addressee: {self._Addressee}')
+        print(f'Subject: {self._Subject}')
+        print(f'Content: {self._Content}')
+        print(f'FilePaths: {self._FilePaths}')
+
 
 class FailedToSendEmail(Exception):
     pass  # Exception class
