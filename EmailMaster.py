@@ -23,10 +23,10 @@ class EmailMaster():
         SendThread.start()  # self.SendEmail()
 
     def SendEmail(self):
-        email = Sender.Email(SenderEmail=self.Window().GetSenderAddress(),
-                             SenderPassword=self.Window().GetSenderPassword(),
-                             Addressee=self.Window().GetAddressee(),
-                             Subject=self.Window().GetSubject(),
+        email = Sender.Email(SenderEmail=self.Window().SenderAddress().get(),
+                             SenderPassword=self.Window().SenderPassword().get(),
+                             Addressee=self.Window().Addressee().get(),
+                             Subject=self.Window().Subject().get(),
                              Content=self.Window().GetContent(),
                              FilePaths=self.Window().GetFilePaths())
 

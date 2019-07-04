@@ -25,20 +25,20 @@ class Window(tk.Tk):
     def ConfigSendButtonFunc(self, func):
         self._SendEmailFrame.ConfigSendButtonFunc(func)
 
-    def GetSubject(self):
-        return self._EmailContentFrame.GetSubject()
+    def Subject(self):
+        return self._EmailContentFrame.Subject()
 
     def GetContent(self):
         return self._EmailContentFrame.GetContent()
 
-    def GetSenderAddress(self):
-        return self._EmailSenderFrame.GetSenderAddress()
+    def SenderAddress(self):
+        return self._EmailSenderFrame.SenderAddress()
 
-    def GetSenderPassword(self):
-        return self._EmailSenderFrame.GetSenderPassword()
+    def SenderPassword(self):
+        return self._EmailSenderFrame.SenderPassword()
 
-    def GetAddressee(self):
-        return self._SendEmailFrame.GetAddressee()
+    def Addressee(self):
+        return self._SendEmailFrame.Addressee()
 
     def GetFilePaths(self):
         return self._AttachFilesFrame.GetFilePaths()
@@ -140,11 +140,11 @@ class EmailSenderFrame(_DefaultLabelFrames):
     def _PasswordEntry(self):
         return self._SenderPass
 
-    def GetSenderAddress(self):
-        return self._AddressEntry().get()
+    def SenderAddress(self):
+        return self._AddressEntry().GetConfig()
 
-    def GetSenderPassword(self):
-        return self._PasswordEntry().get()
+    def SenderPassword(self):
+        return self._PasswordEntry().GetConfig()
 
 
 class SendEmailFrame(_DefaultLabelFrames):
@@ -171,8 +171,8 @@ class SendEmailFrame(_DefaultLabelFrames):
     def _AddresseeEntry(self):
         return self._EmailAddressee
 
-    def GetAddressee(self):
-        return self._AddresseeEntry().get()
+    def Addressee(self):
+        return self._AddresseeEntry().GetConfig()
 
 
 class EmailContentFrame(_DefaultLabelFrames):
@@ -192,8 +192,8 @@ class EmailContentFrame(_DefaultLabelFrames):
     def _ContentTextField(self):
         return self._EmailContent
 
-    def GetSubject(self):
-        return self._SubjectEntry().get()
+    def Subject(self):
+        return self._SubjectEntry().GetConfig()
 
     def GetContent(self):
         return self._ContentTextField().get()
@@ -220,21 +220,19 @@ class _DefaultNameFrame(tk.Frame):
         tk.Frame.__init__(self, Master, *args, **kwargs)
         tk.SmallLabel(self, text='{}:'.format(Name)).BasicGrid(sticky='w')
 
+    def GetConfig(self):
+        return self._Widget.GetConfig()
+
 
 class NameEntryFrame(_DefaultNameFrame):
 
     def __init__(self, Master, Name, DefaultText='', EntryCh='', width=30, *args, **kwargs):
         _DefaultNameFrame.__init__(self, Master, Name, *args, **kwargs)
 
-        self._value = tk.StringVar()
-        self.set(DefaultText)
-        tk.RegularEntry(self, textvariable=self._value, show=EntryCh, width=width).grid()
+        self._Widget = tk.RegularEntry(self, show=EntryCh, width=width)
+        self._Widget.grid()
 
-    def set(self, string):
-        self._value.set(string)
-
-    def get(self):
-        return self._value.get()
+        self.GetConfig().set(DefaultText)
 
 
 class NameTextFrame(_DefaultNameFrame):
