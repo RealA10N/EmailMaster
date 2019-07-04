@@ -177,6 +177,9 @@ class _DefaultEntry(ttk.Entry):
         self.clear()
         self.insert(0, string)
 
+    def get(self, *args, **kwargs):
+        return ttk.Entry.get(self, *args, **kwargs)
+
     def GetConfig(self):
         return ConfigEntry(self)
 
