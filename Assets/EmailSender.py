@@ -65,7 +65,11 @@ class Email():
         return Msg.as_string()
 
     def _GetFilePart(self, FilePath):
-        file = open(FilePath, 'rb')
+        try:
+            file = open(FilePath, 'rb')
+        except FileNotFoundError:
+            raise FailedToSendEmail(f'Failed to load {path.basename(FilePath)}')
+
         part = MIMEBase('application', 'octet-stream')
         part.set_payload(file.read())
         encoders.encode_base64(part)
