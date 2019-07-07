@@ -10,32 +10,32 @@ class EmailMaster():
 
         self._Window = Window()
 
-        self.Window().ConfigSendButtonFunc(self.SendButtonClick)
+        self.GetWindow().ConfigSendButtonFunc(self.SendButtonClick)
 
-        self.Window().mainloop()
+        self.GetWindow().mainloop()
 
-    def Window(self):
+    def GetWindow(self):
         return self._Window
 
     def SendButtonClick(self):
-        self.Window().SetSendingProfile()
+        self.GetWindow().SetSendingProfile()
         SendThread = Thread(target=self.SendEmail)
         SendThread.start()  # self.SendEmail()
 
     def SendEmail(self):
-        email = Sender.Email(SenderEmail=self.Window().SenderAddress().get(),
-                             SenderPassword=self.Window().SenderPassword().get(),
-                             Addressee=self.Window().Addressee().get(),
-                             Subject=self.Window().Subject().get(),
-                             Content=self.Window().Content().get(),
-                             FilePaths=self.Window().GetFilePaths())
+        email = Sender.Email(SenderEmail=self.GetWindow().SenderAddress().get(),
+                             SenderPassword=self.GetWindow().SenderPassword().get(),
+                             Addressee=self.GetWindow().Addressee().get(),
+                             Subject=self.GetWindow().Subject().get(),
+                             Content=self.GetWindow().Content().get(),
+                             FilePaths=self.GetWindow().GetFilePaths())
 
         try:
             email.Send()
         except Sender.FailedToSendEmail as Messege:
             self._RaiseErrorPopup(Messege)
 
-        self.Window().SetSendProfile()
+        self.GetWindow().SetSendProfile()
 
     def _RaiseErrorPopup(self, ErrorMessege):
         GrapicPopup("Failed to send email", ErrorMessege).ShowError()
