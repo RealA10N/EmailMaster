@@ -6,7 +6,7 @@ class Window(tk.Tk):
 
     def __init__(self):
         tk.Tk.__init__(self)
-        self.title("Email Sender")  # change the os title of window
+        self.title("EmailMaster")  # change the os title of window
         self.resizable(False, False)
 
         TitleFrame(self, row=0, column=0, columnspan=2)
@@ -204,7 +204,7 @@ class TitleFrame(tk.Frame):
     def __init__(self, Master, *args, **kwargs):
         tk.Frame.__init__(self, Master)
 
-        tk.BigLabel(self, text='EmailSender').BasicGrid()
+        tk.BigLabel(self, text='EmailMaster').BasicGrid()
         tk.SmallLabel(self, text='By RealA10N').BasicGrid()
 
         tk.Frame.grid(self, *args, **kwargs)
