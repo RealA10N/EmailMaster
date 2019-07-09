@@ -218,7 +218,7 @@ class _DefaultText(tk.Text):
                          *args, **kwargs)
 
     def get(self):
-        return tk.Text.get(self, 1.0, 'end')
+        return tk.Text.get(self, 1.0, 'end').rstrip()
 
     def clear(self):
         self.delete('1.0', 'end')
