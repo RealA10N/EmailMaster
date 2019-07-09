@@ -37,8 +37,8 @@ class EmailMaster():
 
         self.GetWindow().SetSendProfile()
 
-    def _RaiseErrorPopup(self, ErrorMessege):
-        GrapicPopup("Failed to send email", ErrorMessege).ShowError()
+    def _RaiseErrorPopup(self, ErrorMessage, Title='Failed to send email'):
+        GrapicPopup(Title, ErrorMessage).ShowError()
 
 
 class GrapicPopup():
