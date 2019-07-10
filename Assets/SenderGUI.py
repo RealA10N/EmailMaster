@@ -49,6 +49,13 @@ class Window(tk.Tk):
     def SetSendingProfile(self):
         self._SendEmailFrame.SetSendingProfile()
 
+    def GetWidgetConfigsList(self):
+        return [self.SenderAddress(),
+                self.SenderPassword(),
+                self.Addressee(),
+                self.Subject(),
+                self.Content()]
+
 
 # - - - - - - - - - - - - #
 # L A B E L   F R A M E S #
